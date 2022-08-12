@@ -1,3 +1,5 @@
 /.venv
 
 /.dockervenv
+
+__pycache__
