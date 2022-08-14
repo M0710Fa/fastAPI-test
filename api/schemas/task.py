@@ -5,10 +5,10 @@ from pydantic import BaseModel, Field
 class TaskBase(BaseModel):
   title: Optional[str] = Field(None, example= "クリーニングを取りに行く")
 
-class TaskCreate(TaskBsse):
+class TaskCreate(TaskBase):
   pass
 
-class TaskCreateResponse(TaskBsse):
+class TaskCreateResponse(TaskBase):
   id: int
 
   class Config:
