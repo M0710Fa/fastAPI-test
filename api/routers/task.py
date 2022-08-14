@@ -6,7 +6,7 @@ import api.schemas.task as task_schema
 
 router = APIRouter()
 
-@router.get("/tasks")
+@router.get("/tasks", response_model= List[task_schema.Task])
 async def list_tasks():
   return [task_scheme.Task(id=1, title="１つ目のタスク")]
 
@@ -14,10 +14,10 @@ async def list_tasks():
 async def create_task(task_body: task_schema.TaskCreate):
   return task_schema.TaskCreateResponse(id= 1, **task_body.dict())
 
-@router.get("/tasks/{task_id}")
-async def update_task():
-  pass
+@router.put("/tasks/{task_id}")
+async def update_task(task_id: int, task_body: task_schema.TaskCreate):
+  return task_schema.TaskCreateResponse(id= task_id, **task_body.dict())
 
-@router.get("/tasks/{task_id}")
-async def delete_task():
-  pass
+@router.delete("/tasks/{task_id}", response_model= None)
+async def delete_task(task_id: int):
+  return 
