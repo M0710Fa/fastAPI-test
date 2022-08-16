@@ -9,3 +9,8 @@ docker-compose build --no-cache
 
 docker-compose up
 ```
+
+### Enter MySQL
+```
+docker-compose exec db mysql demo
+```
